@@ -1,0 +1,44 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[sp_insertdata]",
+					"storedProcedureParameters": {
+						"first_name": {
+							"value": "Shazain",
+							"type": "String"
+						},
+						"last_name": {
+							"value": "Mohamed",
+							"type": "String"
+						},
+						"sno": {
+							"value": "2",
+							"type": "Int32"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServer1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-12-24T07:30:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

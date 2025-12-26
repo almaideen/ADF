@@ -1,0 +1,58 @@
+{
+	"name": "lookup_filter",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "select AddressID, AddressLine1, AddressLine2, City, StateProvinceID, PostalCode, cast(SpatialLocation as varchar(max)) as SpatialLocation, rowguid\nfrom person.Address",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "Filter1",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup1').output.value",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@equals(item().City,'London')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-12-25T06:25:52Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,21 @@
+{
+	"name": "SqlServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "LAPTOP-SNKFO6MP\\MAIDEEN",
+			"database": "AdventureWorks2019",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3ZjZmZjM4OC1lNThjLTRmNzAtYmZlMy1iODI1Y2NkZmM2ZTEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SQLintegrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

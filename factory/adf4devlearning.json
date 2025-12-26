@@ -1,0 +1,9 @@
+{
+	"name": "adf4devlearning",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d8fbae65-a16d-48de-a489-357507fe062b",
+		"tenantId": "4ad6827d-0ef0-4ed7-aa1b-63eeea34681c"
+	}
+}

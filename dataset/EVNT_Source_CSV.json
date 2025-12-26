@@ -1,0 +1,23 @@
+{
+	"name": "EVNT_Source_CSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_EVNT_TRI_SOURCE",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "eventtriggercsv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
